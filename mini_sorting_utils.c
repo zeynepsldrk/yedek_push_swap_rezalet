@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_remaining_elements(int *stack_a, int index_a, int remaining)
+void	sort_remaining_elements(int *stack_a, int *index_a, int remaining)
 {
 	if (remaining == 2)
 		two_elements_sorting(stack_a, index_a);
@@ -32,14 +32,14 @@ void	bring_top_element(int *stack_a, int index_a, int min_pos)
 	}
 }
 
-void	find_move_elements_count(int index_a, int move_elements_count)
+int	find_move_elements_count(int index_a)
 {
 	if (index_a <= 5)
-		move_elements_count = 2;
+		return (2);
 	else if (index_a <= 7)
-		move_elements_count = 2;
+		return (2);
 	else
-		move_elements_count = 3;
+		return (3);
 }
 
 int	find_min_pos(int *stack_a, int index_a)

@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void	ra(int *stack_a, int index_a)
+void	ra(int *stack_a, int *index_a)
 {
 	int	temp;
 	int	i;
 
-	if (index_a <= 0)
+	if (*index_a <= 0)
 		return ;
-	temp = stack_a[index_a];
-	i = index_a;
+	temp = stack_a[*index_a];
+	i = *index_a;
 	while (i > 0)
 	{
 		stack_a[i] = stack_a[i - 1];
@@ -30,16 +30,16 @@ void	ra(int *stack_a, int index_a)
 	write(1, "ra\n", 3);
 }
 
-void	rb(int *stack_b, int index_b)
+void	rb(int *stack_b, int *index_b)
 {
 	int	temp;
 	int	i;
 
-	if (index_b <= 0)
+	if (*index_b <= 0)
 		return ;
-	temp = stack_b[index_b];
-	i = index_b;
-	while (i >= 0)
+	temp = stack_b[*index_b];
+	i = *index_b;
+	while (i > 0)
 	{
 		stack_b[i] = stack_b[i - 1];
 		i--;
@@ -50,7 +50,7 @@ void	rb(int *stack_b, int index_b)
 
 void	rr(int *stack_a, int *stack_b, int index_a, int index_b)
 {
-	rra(stack_a, index_a);
-	rra(stack_b, index_b);
+	ra(stack_a, index_a);
+	ra(stack_b, index_b);
 	write(1, "rr\n", 3);
 }

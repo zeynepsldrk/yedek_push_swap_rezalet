@@ -14,11 +14,14 @@
 
 int	is_sorted(int *stack_a, int size)
 {
-	while (size > 0)
+    int i;
+
+    i = 0;
+	while (i < size - 1)
 	{
-		if (!(stack_a[size] < stack_a[size - 1]))
+		if ((stack_a[i] > stack_a[i + 1]))
 			return (0);
-		size--;
+		i++;
 	}
 	return (1);
 }

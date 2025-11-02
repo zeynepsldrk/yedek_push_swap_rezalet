@@ -31,7 +31,7 @@ void	index_stack(int *stack_a, int index_a)
 	int	j;
 	int	rank;
 
-	copy = open_heap((index_a + 2));
+	copy = open_heap((index_a + 1));
 	copy_array(copy, stack_a, index_a);
 	i = 0;
 	while (i <= index_a)
@@ -71,6 +71,7 @@ int	find_max_rank(int *stack_a, int index_a)
 	int	max_rank;
 
 	i = 0;
+    max_rank = stack_a[0];
 	while (i <= index_a)
 	{
 		if (stack_a[i] > max_rank)

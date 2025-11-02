@@ -14,11 +14,13 @@
 
 void	go_sort(int ac, int *stack_a, int *stack_b)
 {
-	int	index_a;
-	int	index_b;
+	int	*index_a;
+	int	*index_b;
 
-	index_a = ac - 2;
-	index_b = -1;
+	index_a = open_heap(1);
+	index_b = open_heap(1);
+    *index_a = ac - 2;
+    *index_b = -1;
 	if (ac - 1 == 2)
 		two_elements_sorting(stack_a, index_a);
 	else if (ac - 1 == 3)
@@ -28,7 +30,12 @@ void	go_sort(int ac, int *stack_a, int *stack_b)
 	else if ((ac - 1 >= 5) && (ac - 1 <= 10))
 		small_elements_sorting(stack_a, stack_b, index_a, index_b);
 	else
-		boss_sorting(stack_a, stack_b, index_a, index_b);
+    {
+        index_stack(stack_a, *index_a);
+        boss_sorting(stack_a, stack_b, index_a, index_b);
+    }
+    free(index_a);
+    free(index_b);
 }
 
 void	start_push_swap(char **av, int ac)

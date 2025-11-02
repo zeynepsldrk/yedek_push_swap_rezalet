@@ -20,14 +20,14 @@
 void	four_elements_sorting(
 			int *stack_a,
 			int *stack_b,
-			int index_a,
-			int index_b
+			int *index_a,
+			int *index_b
 			);
 void	small_elements_sorting(
 			int *stack_a,
 			int *stack_b,
-			int index_a,
-			int index_b
+			int *index_a,
+			int *index_b
 			);
 
 int		is_number(char *str);
@@ -44,7 +44,7 @@ void	start_push_swap(char **av, int ac);
 int		main(int ac, char **av);
 void	sort_remaining_elements(int *stack_a, int index_a, int remaining);
 void	bring_top_element(int *stack_a, int index_a, int min_pos);
-void	find_move_elements_count(int index_a, int move_elements_count);
+int	    find_move_elements_count(int index_a);
 int		find_min_pos(int *stack_a, int index_a);
 int		find_max_bit(int *stack_a, int index_a);
 int		find_max_rank(int *stack_a, int index_a);

@@ -12,26 +12,28 @@
 
 #include "push_swap.h"
 
-void	boss_sorting(int *stack_a, int *stack_b, int index_a, int index_b)
+void	boss_sorting(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
 	int	max_bit;
 	int	current_bit;
 	int	len;
+    int i;
 
-	max_bit = find_max_bit(stack_a, index_a);
+	max_bit = find_max_bit(stack_a, *index_a);
 	current_bit = 0;
 	while (current_bit < max_bit)
 	{
-		len = index_a;
-		while (len >= 0)
+        i = 0;
+		len = (*index_a) + 1;
+		while (i < len)
 		{
-			if (((stack_a[len] >> current_bit) & 1) == 1)
+			if (((stack_a[0] >> current_bit) & 1) == 1)
 				ra(stack_a, index_a);
 			else
 				pb(stack_a, stack_b, index_a, index_b);
 			len--;
 		}
-		while (index_b >= 0)
+		while (*index_b >= 0)
 			pa(stack_a, stack_b, index_a, index_b);
 		current_bit++;
 	}
