@@ -6,7 +6,7 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:26:56 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 20:02:49 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 16:59:53 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	go_sort(int ac, int *stack_a, int *stack_b)
 
 	index_a = open_heap(1);
 	index_b = open_heap(1);
-    *index_a = ac - 1;
-    *index_b = -1;
+	*index_a = ac - 1;
+	*index_b = -1;
 	if (ac == 2)
 		two_elements_sorting(stack_a, index_a);
 	else if (ac == 3)
@@ -30,12 +30,12 @@ void	go_sort(int ac, int *stack_a, int *stack_b)
 	else if ((ac >= 5) && (ac <= 10))
 		small_elements_sorting(stack_a, stack_b, index_a, index_b);
 	else
-    {
-        index_stack(stack_a, *index_a);
-        boss_sorting(stack_a, stack_b, index_a, index_b);
-    }
-    free(index_a);
-    free(index_b);
+	{
+		index_stack(stack_a, *index_a);
+		boss_sorting(stack_a, stack_b, index_a, index_b);
+	}
+	free(index_a);
+	free(index_b);
 }
 
 void	start_push_swap(char **av, int ac)
@@ -57,26 +57,29 @@ void	start_push_swap(char **av, int ac)
 	free(stack_b);
 }
 
-int main(int ac, char **av)
+void	mini_check(char **av, int ac)
+{
+	if (!arg_check(av, ac))
+		print_error();
+	start_push_swap(av + 1, ac - 1);
+}
+
+int	main(int ac, char **av)
 {
 	char	**slice_arg;
 	int		arg_count;
 
 	if (ac > 2)
-	{
-		if (!arg_check(av, ac))
-			print_error();
-		start_push_swap(av + 1, ac - 1);
-	}
+		mini_check(av, ac);
 	else if (ac == 2)
 	{
 		slice_arg = ft_split(av[1], ' ');
 		if (!slice_arg[0] || !slice_arg)
-        {
-            if (slice_arg)
-                free(slice_arg);
-            return (0);
-        }
+		{
+			if (slice_arg)
+				free(slice_arg);
+			print_error();
+		}
 		arg_count = find_arg_count(slice_arg);
 		if (!arg_check_two(slice_arg, arg_count))
 		{

@@ -6,7 +6,7 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:08:21 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 16:04:11 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 16:53:34 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	is_sorted(int *stack_a, int size)
 {
-    int i;
+	int	i;
 
-    i = size - 1;
+	i = size - 1;
 	while (i > 0)
 	{
 		if ((stack_a[i] > stack_a[i - 1]))
@@ -29,22 +29,22 @@ int	is_sorted(int *stack_a, int size)
 void	fill_stack_a(int *stack_a, char **av, int ac)
 {
 	int	i;
-    int j;
+	int	j;
 
 	i = 0;
-    j = ac - 1;
+	j = ac - 1;
 	while (i < ac)
 	{
 		stack_a[j] = ft_atoi(av[i]);
 		i++;
-        j--;
+		j--;
 	}
 }
 
 int	*open_heap(int ac)
 {
 	int	*stack;
-	
+
 	stack = (int *)malloc(ac * sizeof(int));
 	if (!stack)
 		print_error();

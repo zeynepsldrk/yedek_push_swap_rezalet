@@ -6,7 +6,7 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:42:01 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 20:10:20 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 16:57:01 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 long	ft_atol(const char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	result;
 
 	sign = 1;
@@ -62,9 +62,9 @@ long	ft_atol(const char *str)
 	return (sign * result);
 }
 
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-    return ((int)ft_atol(str));
+	return ((int)ft_atol(str));
 }
 
 char	*ft_strdup(const char *s)
@@ -87,20 +87,6 @@ char	*ft_strdup(const char *s)
 	}
 	a[i] = '\0';
 	return (a);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
-		i++;
-	}
-	return (0);
 }
 
 size_t	ft_strlen(const char *s)

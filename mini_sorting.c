@@ -6,7 +6,7 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 14:54:56 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 14:53:01 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 15:26:00 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ void	three_elements_sorting(int *stack_a, int *index_a)
 	second = stack_a[*index_a - 1];
 	third = stack_a[*index_a - 2];
 	if (top > second && second > third)
-    {
-        sa(stack_a, index_a);
-        rra(stack_a, index_a);
-    }
-	else if (top > second && second < third)
-        sa(stack_a, index_a);
-	else if (top > second && top > third && second < third)
-		ra(stack_a, index_a);
+	{
+		sa(stack_a, index_a);
+		rra(stack_a, index_a);
+	}
 	else if (top < second && top > third)
 		rra(stack_a, index_a);
-    else if (top < second && second > third && top < third)
-    {
-        sa(stack_a, index_a);
-        ra(stack_a, index_a);
-    }
+	else if (top < second && second > third && top < third)
+	{
+		sa(stack_a, index_a);
+		ra(stack_a, index_a);
+	}
+	else if (top > second && top < third)
+		sa(stack_a, index_a);
+	else if (top > second && second < third && top > third)
+		ra(stack_a, index_a);
 }
 
 void	four_elements_sorting(int *stack_a, int *stack_b,

@@ -6,7 +6,7 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:26:01 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 16:07:34 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 16:56:15 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	find_max_rank(int *stack_a, int index_a)
 	int	max_rank;
 
 	i = 0;
-    max_rank = stack_a[0];
+	max_rank = stack_a[0];
 	while (i <= index_a)
 	{
 		if (stack_a[i] > max_rank)

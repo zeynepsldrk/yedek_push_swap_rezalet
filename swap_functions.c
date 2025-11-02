@@ -6,7 +6,7 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:58:47 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 13:59:45 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 14:12:47 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void	ss(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
 	int	temp;
 
-    if (*index_a > 0)
-    {
-        temp = stack_a[*index_a];
-	    stack_a[*index_a] = stack_a[(*index_a) - 1];
-	    stack_a[(*index_a) - 1] = temp;
-    }
+	if (*index_a > 0)
+	{
+		temp = stack_a[*index_a];
+		stack_a[*index_a] = stack_a[(*index_a) - 1];
+		stack_a[(*index_a) - 1] = temp;
+	}
 	if (*index_b > 0)
 	{
-        temp = stack_b[*index_b];
-        stack_b[*index_b] = stack_b[(*index_b) - 1];
-        stack_b[(*index_b) - 1] = temp;
-    }
+		temp = stack_b[*index_b];
+		stack_b[*index_b] = stack_b[(*index_b) - 1];
+		stack_b[(*index_b) - 1] = temp;
+	}
 	write(1, "ss\n", 3);
 }

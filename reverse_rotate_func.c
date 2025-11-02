@@ -6,13 +6,13 @@
 /*   By: zedurak <zedurak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:58:44 by zedurak           #+#    #+#             */
-/*   Updated: 2025/11/01 16:29:17 by zedurak          ###   ########.fr       */
+/*   Updated: 2025/11/02 14:12:16 by zedurak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(int *stack_a, int *index_a)
+void	rra_no_print(int *stack_a, int *index_a)
 {
 	int	temp;
 	int	i;
@@ -27,10 +27,15 @@ void	rra(int *stack_a, int *index_a)
 		i++;
 	}
 	stack_a[*index_a] = temp;
+}
+
+void	rra(int *stack_a, int *index_a)
+{
+	rra_no_print(stack_a, index_a);
 	write(1, "rra\n", 4);
 }
 
-void	rrb(int *stack_b, int *index_b)
+void	rrb_no_print(int *stack_b, int *index_b)
 {
 	int	temp;
 	int	i;
@@ -45,12 +50,17 @@ void	rrb(int *stack_b, int *index_b)
 		i++;
 	}
 	stack_b[*index_b] = temp;
+}
+
+void	rrb(int *stack_b, int *index_b)
+{
+	rrb_no_print(stack_b, index_b);
 	write(1, "rrb\n", 4);
 }
 
 void	rrr(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
-	rra(stack_a, index_a);
-	rrb(stack_b, index_b);
+	rra_no_print(stack_a, index_a);
+	rrb_no_print(stack_b, index_b);
 	write(1, "rrr\n", 4);
 }
