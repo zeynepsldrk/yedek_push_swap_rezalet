@@ -74,10 +74,10 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 	{
 		slice_arg = ft_split(av[1], ' ');
-		if (!slice_arg[0] || !slice_arg)
+		if (!slice_arg || !slice_arg[0])
 		{
 			if (slice_arg)
-				free(slice_arg);
+				free_all_arg_staff(slice_arg);
 			print_error();
 		}
 		arg_count = find_arg_count(slice_arg);

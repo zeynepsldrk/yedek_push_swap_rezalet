@@ -44,7 +44,6 @@ int		*open_heap(int ac);
 void	go_sort(int ac, int *stack_a, int *stack_b);
 void	start_push_swap(char **av, int ac);
 int		main(int ac, char **av);
-void	sort_remaining_elements(int *stack_a, int *index_a, int remaining);
 void	bring_top_element(int *stack_a, int *index_a, int min_pos);
 int		find_move_elements_count(int index_a);
 int		find_min_pos(int *stack_a, int index_a);

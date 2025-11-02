@@ -50,14 +50,11 @@ void	four_elements_sorting(int *stack_a, int *stack_b,
 {
 	int	min_pos;
 
-	if (((*index_a) + 1) == 4)
-	{
-		min_pos = find_min_pos(stack_a, *index_a);
-		bring_top_element(stack_a, index_a, min_pos);
-		pb(stack_a, stack_b, index_a, index_b);
-		three_elements_sorting(stack_a, index_a);
-		pa(stack_a, stack_b, index_a, index_b);
-	}
+	min_pos = find_min_pos(stack_a, *index_a);
+	bring_top_element(stack_a, index_a, min_pos);
+	pb(stack_a, stack_b, index_a, index_b);
+	three_elements_sorting(stack_a, index_a);
+	pa(stack_a, stack_b, index_a, index_b);
 }
 
 void	small_elements_sorting(int *stack_a, int *stack_b,
@@ -76,8 +73,11 @@ void	small_elements_sorting(int *stack_a, int *stack_b,
 		pb(stack_a, stack_b, index_a, index_b);
 		move_elements_count--;
 	}
-	sort_remaining_elements(stack_a, index_a, remaining);
-	if (remaining == 4)
+	if (remaining == 2)
+		two_elements_sorting(stack_a, index_a);
+	else if (remaining == 3)
+		three_elements_sorting(stack_a, index_a);
+	else if (remaining == 4)
 		four_elements_sorting(stack_a, stack_b, index_a, index_b);
 	while (*index_b >= 0)
 		pa(stack_a, stack_b, index_a, index_b);
