@@ -64,12 +64,54 @@ int	arg_check(char **av, int ac)
 	{
 		if (!is_number(av[i]))
 			return (0);
-		num = ft_atoi(av[i]);
+		num = ft_atol(av[i]);
 		if (num > INT_MAX || num < INT_MIN)
-			return (0);
+            return (0);
 		i++;
 	}
 	return (1);
+}
+
+int	arg_check_two(char **av, int ac)
+{
+	long	num;
+	int		i;
+
+	i = 0;
+	if (is_duplicate_two(av))
+		return (0);
+	while (i < ac)
+	{
+		if (!is_number(av[i]))
+			return (0);
+		num = ft_atol(av[i]);
+		if (num > INT_MAX || num < INT_MIN)
+            return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	is_duplicate_two(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!av[0])
+		return (0);
+	while (av[i])
+	{
+		j = i + 1;
+		while (av[j])
+		{
+			if (ft_strcmp(av[i], av[j]) == 0)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 void	print_error(void)

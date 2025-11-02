@@ -19,15 +19,15 @@ void	go_sort(int ac, int *stack_a, int *stack_b)
 
 	index_a = open_heap(1);
 	index_b = open_heap(1);
-    *index_a = ac - 2;
+    *index_a = ac - 1;
     *index_b = -1;
-	if (ac - 1 == 2)
+	if (ac == 2)
 		two_elements_sorting(stack_a, index_a);
-	else if (ac - 1 == 3)
+	else if (ac == 3)
 		three_elements_sorting(stack_a, index_a);
-	else if (ac - 1 == 4)
+	else if (ac == 4)
 		four_elements_sorting(stack_a, stack_b, index_a, index_b);
-	else if ((ac - 1 >= 5) && (ac - 1 <= 10))
+	else if ((ac >= 5) && (ac <= 10))
 		small_elements_sorting(stack_a, stack_b, index_a, index_b);
 	else
     {
@@ -46,7 +46,7 @@ void	start_push_swap(char **av, int ac)
 	stack_a = open_heap(ac);
 	stack_b = open_heap(ac);
 	fill_stack_a(stack_a, av, ac);
-	if (is_sorted(stack_a, ac - 1))
+	if (is_sorted(stack_a, ac))
 	{
 		free(stack_a);
 		free(stack_b);
@@ -66,15 +66,19 @@ int main(int ac, char **av)
 	{
 		if (!arg_check(av, ac))
 			print_error();
-		start_push_swap(av, ac);
+		start_push_swap(av + 1, ac - 1);
 	}
 	else if (ac == 2)
 	{
 		slice_arg = ft_split(av[1], ' ');
-		if (!slice_arg[0])
-			return (0);
+		if (!slice_arg[0] || !slice_arg)
+        {
+            if (slice_arg)
+                free(slice_arg);
+            return (0);
+        }
 		arg_count = find_arg_count(slice_arg);
-		if (!arg_check(slice_arg, arg_count))
+		if (!arg_check_two(slice_arg, arg_count))
 		{
 			free_all_arg_staff(slice_arg);
 			print_error();

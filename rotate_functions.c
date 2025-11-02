@@ -48,9 +48,9 @@ void	rb(int *stack_b, int *index_b)
 	write(1, "rb\n", 3);
 }
 
-void	rr(int *stack_a, int *stack_b, int index_a, int index_b)
+void	rr(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
 	ra(stack_a, index_a);
-	ra(stack_b, index_b);
+	rb(stack_b, index_b);
 	write(1, "rr\n", 3);
 }

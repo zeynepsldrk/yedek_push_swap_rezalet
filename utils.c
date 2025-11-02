@@ -12,18 +12,6 @@
 
 #include "push_swap.h"
 
-void print_stack(int *stack)
-{
-	int i = 0;
-
-	while (stack[i])
-	{
-		printf("%d\n", stack[i]);
-		i++;
-	}
-	
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*newstr;
@@ -46,11 +34,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (newstr);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	int	i;
 	int	sign;
-	int	result;
+	long	result;
 
 	sign = 1;
 	result = 0;
@@ -72,6 +60,11 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (sign * result);
+}
+
+int ft_atoi(char *str)
+{
+    return ((int)ft_atol(str));
 }
 
 char	*ft_strdup(const char *s)

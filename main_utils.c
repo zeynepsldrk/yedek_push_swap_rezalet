@@ -16,12 +16,12 @@ int	is_sorted(int *stack_a, int size)
 {
     int i;
 
-    i = 0;
-	while (i < size - 1)
+    i = size - 1;
+	while (i > 0)
 	{
-		if ((stack_a[i] > stack_a[i + 1]))
+		if ((stack_a[i] > stack_a[i - 1]))
 			return (0);
-		i++;
+		i--;
 	}
 	return (1);
 }
@@ -29,12 +29,15 @@ int	is_sorted(int *stack_a, int size)
 void	fill_stack_a(int *stack_a, char **av, int ac)
 {
 	int	i;
+    int j;
 
 	i = 0;
+    j = ac - 1;
 	while (i < ac)
 	{
-		stack_a[i] = ft_atoi(av[i]);
+		stack_a[j] = ft_atoi(av[i]);
 		i++;
+        j--;
 	}
 }
 

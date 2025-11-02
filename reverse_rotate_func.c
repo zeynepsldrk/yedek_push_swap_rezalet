@@ -51,6 +51,6 @@ void	rrb(int *stack_b, int *index_b)
 void	rrr(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
 	rra(stack_a, index_a);
-	rra(stack_b, index_b);
+	rrb(stack_b, index_b);
 	write(1, "rrr\n", 4);
 }

@@ -20,15 +20,15 @@ void	sort_remaining_elements(int *stack_a, int *index_a, int remaining)
 		three_elements_sorting(stack_a, index_a);
 }
 
-void	bring_top_element(int *stack_a, int index_a, int min_pos)
+void	bring_top_element(int *stack_a, int *index_a, int min_pos)
 {
-	while (min_pos != index_a)
+	while (min_pos != (*index_a))
 	{
-		if (min_pos > (index_a / 2))
+		if (min_pos > ((*index_a) / 2))
 			ra(stack_a, index_a);
 		else
 			rra(stack_a, index_a);
-		min_pos = find_min_pos(stack_a, index_a);
+		min_pos = find_min_pos(stack_a, *index_a);
 	}
 }
 

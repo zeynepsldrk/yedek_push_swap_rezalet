@@ -27,22 +27,22 @@ void	three_elements_sorting(int *stack_a, int *index_a)
 	top = stack_a[*index_a];
 	second = stack_a[*index_a - 1];
 	third = stack_a[*index_a - 2];
-	if (top < second && second > third && top > third)
+	if (top > second && second > third)
+    {
+        sa(stack_a, index_a);
+        rra(stack_a, index_a);
+    }
+	else if (top > second && second < third)
+        sa(stack_a, index_a);
+	else if (top > second && top > third && second < third)
 		ra(stack_a, index_a);
-	else if (top > second && second < third && top < third)
-		sa(stack_a, index_a);
-	else if (top < second && second > third && top < third)
-	{
-		ra(stack_a, index_a);
-		sa(stack_a, index_a);
-	}
-	else if (top > second && second < third && top > third)
+	else if (top < second && top > third)
 		rra(stack_a, index_a);
-	else if (top > second && second > third && top > third)
-	{
-		rra(stack_a, index_a);
-		sa(stack_a, index_a);
-	}
+    else if (top < second && second > third && top < third)
+    {
+        sa(stack_a, index_a);
+        ra(stack_a, index_a);
+    }
 }
 
 void	four_elements_sorting(int *stack_a, int *stack_b,
@@ -50,10 +50,10 @@ void	four_elements_sorting(int *stack_a, int *stack_b,
 {
 	int	min_pos;
 
-	if ((index_a + 1) == 4)
+	if (((*index_a) + 1) == 4)
 	{
 		min_pos = find_min_pos(stack_a, *index_a);
-		bring_top_element(stack_a, *index_a, min_pos);
+		bring_top_element(stack_a, index_a, min_pos);
 		pb(stack_a, stack_b, index_a, index_b);
 		three_elements_sorting(stack_a, index_a);
 		pa(stack_a, stack_b, index_a, index_b);
@@ -72,13 +72,13 @@ void	small_elements_sorting(int *stack_a, int *stack_b,
 	while (move_elements_count > 0)
 	{
 		min_pos = find_min_pos(stack_a, *index_a);
-		bring_top_element(stack_a, *index_b, min_pos);
+		bring_top_element(stack_a, index_a, min_pos);
 		pb(stack_a, stack_b, index_a, index_b);
 		move_elements_count--;
 	}
-	sort_remaining_elements(stack_a, index_b, remaining);
+	sort_remaining_elements(stack_a, index_a, remaining);
 	if (remaining == 4)
 		four_elements_sorting(stack_a, stack_b, index_a, index_b);
-	while (index_b >= 0)
+	while (*index_b >= 0)
 		pa(stack_a, stack_b, index_a, index_b);
 }
